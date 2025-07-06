@@ -1,19 +1,22 @@
 name: vrouter
 description: A navigation package that makes navigation and routing easy on every platform. Built on top of Navigator 2.
-version: 1.2.1
+version: 1.2.2
 homepage: https://vrouter.dev
 repository: https://github.com/lulupointu/vrouter
 
 environment:
-  sdk: ">=3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.5.4"
+  flutter: ">=3.24.0"
 
 dependencies:
   flutter:
     sdk: flutter
   url_strategy: ^0.2.0
   url_launcher: ^6.1.2
-  move_to_background: ^1.0.2
+  move_to_background:
+    git:
+      url: https://github.com/brightknight08/move_to_background
+      ref: master
 
 dev_dependencies:
   flutter_test:
@@ -24,7 +27,6 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -61,3 +63,5 @@ dev_dependencies:
 #
 # For details regarding fonts in packages, see
 # https://flutter.dev/custom-fonts/#from-packages
+
+publish_to: none
