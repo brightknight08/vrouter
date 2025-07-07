@@ -18,8 +18,11 @@ class WidgetsVRouter extends VRouterApp {
 
   @override
   final Widget Function(
-          Animation<double> animation, Animation<double> secondaryAnimation, Widget child)?
-      buildTransition;
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  )?
+  buildTransition;
 
   @override
   final Duration? transitionDuration;
@@ -41,12 +44,12 @@ class WidgetsVRouter extends VRouterApp {
   Future<void> beforeLeave(
     VRedirector vRedirector,
     void Function(Map<String, String> historyState) saveHistoryState,
-  ) =>
-      _beforeLeave(vRedirector, saveHistoryState);
+  ) => _beforeLeave(vRedirector, saveHistoryState);
   final Future<void> Function(
     VRedirector vRedirector,
     void Function(Map<String, String> historyState) saveHistoryState,
-  ) _beforeLeave;
+  )
+  _beforeLeave;
 
   @override
   void afterEnter(BuildContext context, String? from, String to) => _afterEnter(context, from, to);
@@ -74,9 +77,11 @@ class WidgetsVRouter extends VRouterApp {
     required this.routes,
     Future<void> Function(VRedirector vRedirector) beforeEnter = VoidVGuard.voidBeforeEnter,
     Future<void> Function(
-      VRedirector vRedirector,
-      void Function(Map<String, String> historyState) saveHistoryState,
-    ) beforeLeave = VoidVGuard.voidBeforeLeave,
+          VRedirector vRedirector,
+          void Function(Map<String, String> historyState) saveHistoryState,
+        )
+        beforeLeave =
+        VoidVGuard.voidBeforeLeave,
     void Function(BuildContext context, String? from, String to) afterEnter =
         VoidVGuard.voidAfterEnter,
     Future<void> Function(VRedirector vRedirector) onPop = VoidVPopHandler.voidOnPop,
@@ -90,7 +95,8 @@ class WidgetsVRouter extends VRouterApp {
     this.navigatorObservers = const [],
     this.builder,
     @Deprecated(
-        'Please use navigatorKey instead.\n This has been removed because it is redundant with navigatorKey.')
+      'Please use navigatorKey instead.\n This has been removed because it is redundant with navigatorKey.',
+    )
     this.appRouterKey,
     this.navigatorKey,
     // Bellow are the WidgetsApp parameters
@@ -110,16 +116,15 @@ class WidgetsVRouter extends VRouterApp {
     this.debugShowWidgetInspector = false,
     this.debugShowCheckedModeBanner = true,
     this.useInheritedMediaQuery = false,
-    this.inspectorSelectButtonBuilder,
     this.shortcuts,
     this.actions,
     this.restorationScopeId,
-  })  : _beforeEnter = beforeEnter,
-        _beforeLeave = beforeLeave,
-        _afterEnter = afterEnter,
-        _onPop = onPop,
-        _onSystemPop = onSystemPop,
-        super(key: key);
+  }) : _beforeEnter = beforeEnter,
+       _beforeLeave = beforeLeave,
+       _afterEnter = afterEnter,
+       _onPop = onPop,
+       _onSystemPop = onSystemPop,
+       super(key: key);
 
   @override
   WidgetsVRouterState createState() => WidgetsVRouterState();
@@ -338,7 +343,7 @@ class WidgetsVRouter extends VRouterApp {
   /// This lets [MaterialApp] to use a material button to toggle the inspector
   /// select mode without requiring [WidgetInspector] to depend on the
   /// material package.
-  final InspectorSelectButtonBuilder? inspectorSelectButtonBuilder;
+  // final InspectorSelectButtonBuilder? inspectorSelectButtonBuilder;
 
   /// {@macro flutter.widgets.widgetsApp.shortcuts}
   /// {@tool snippet}
@@ -436,9 +441,10 @@ class WidgetsVRouter extends VRouterApp {
 
     if (vRouterData == null) {
       throw FlutterError(
-          'MaterialVRouter.of(context) was called with a context which does not contain a MaterialVRouter.\n'
-          'The context used to retrieve MaterialVRouter must be that of a widget that '
-          'is a descendant of a MaterialVRouter widget.');
+        'MaterialVRouter.of(context) was called with a context which does not contain a MaterialVRouter.\n'
+        'The context used to retrieve MaterialVRouter must be that of a widget that '
+        'is a descendant of a MaterialVRouter widget.',
+      );
     }
     return vRouterData;
   }
@@ -478,13 +484,9 @@ class WidgetsVRouterState extends State<WidgetsVRouter>
         localeResolutionCallback: widget.localeResolutionCallback,
         supportedLocales: widget.supportedLocales,
         showPerformanceOverlay: widget.showPerformanceOverlay,
-        // checkerboardRasterCacheImages: widget.checkerboardRasterCacheImages,
-        // checkerboardOffscreenLayers: widget.checkerboardOffscreenLayers,
         showSemanticsDebugger: widget.showSemanticsDebugger,
         debugShowWidgetInspector: widget.debugShowWidgetInspector,
         debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
-        useInheritedMediaQuery: widget.useInheritedMediaQuery,
-        inspectorSelectButtonBuilder: widget.inspectorSelectButtonBuilder,
         shortcuts: widget.shortcuts,
         actions: widget.actions,
         restorationScopeId: widget.restorationScopeId,
