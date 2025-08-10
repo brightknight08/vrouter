@@ -16,7 +16,7 @@ dependencies:
   move_to_background:
     git:
       url: https://github.com/brightknight08/move_to_background
-      ref: master
+      ref: F_3_22
 
 dev_dependencies:
   flutter_test:
